@@ -8,6 +8,6 @@ import java.util.List;
 
 public record FraseCreateDTO(
         @NotNull @NotBlank @NotEmpty String fraseOriginale,
-        List<TraduzioneRequestDTO> traduzioni
+        List<TraduzioneDTO> traduzioni
 ) {
 }

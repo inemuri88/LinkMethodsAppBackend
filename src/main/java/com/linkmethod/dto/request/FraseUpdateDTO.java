@@ -9,6 +9,6 @@ import java.util.List;
 public record FraseUpdateDTO(
         Long id,
         @NotNull @NotBlank @NotEmpty String fraseOriginale,
-        List<TraduzioneRequestDTO> traduzioni
+        List<TraduzioneDTO> traduzioni
 ) {
 }

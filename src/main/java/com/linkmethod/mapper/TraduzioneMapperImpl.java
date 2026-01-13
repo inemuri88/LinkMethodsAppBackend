@@ -1,7 +1,7 @@
 package com.linkmethod.mapper;
 
 import com.linkmethod.dto.request.TraduzioneCreateDTO;
-import com.linkmethod.dto.request.TraduzioneRequestDTO;
+import com.linkmethod.dto.request.TraduzioneDTO;
 import com.linkmethod.dto.response.TraduzioneResponseDTO;
 import com.linkmethod.entity.Frase;
 import com.linkmethod.entity.Traduzione;
@@ -32,13 +32,13 @@ public class TraduzioneMapperImpl implements TraduzioneMapper{
     }
 
     @Override
-    public Traduzione toEntity(TraduzioneRequestDTO dto) {
+    public Traduzione toEntity(TraduzioneDTO dto) {
         Frase frase = fraseRepository.findById(dto.fraseId()).orElse(FRASE_NON_TROVATA_FRASE);
         return new Traduzione(dto.id(), dto.fraseTradotta(), dto.notaMentale(), dto.lingua(), frase);
     }
 
     @Override
-    public List<Traduzione> toEntities(List<TraduzioneRequestDTO> dtos) {
+    public List<Traduzione> toEntities(List<TraduzioneDTO> dtos) {
 
         return dtos.stream()
                 .map(t -> {
@@ -55,7 +55,7 @@ public class TraduzioneMapperImpl implements TraduzioneMapper{
     }
 
     @Override
-    public Traduzione toEntity(TraduzioneRequestDTO dto, Long idFrase) {
+    public Traduzione toEntity(TraduzioneDTO dto, Long idFrase) {
         Frase frase =  fraseRepository.findById(idFrase).orElse(FRASE_NON_TROVATA_FRASE);
         return  new Traduzione(
                 null,
@@ -91,8 +91,8 @@ public class TraduzioneMapperImpl implements TraduzioneMapper{
     }
 
     @Override
-    public List<TraduzioneRequestDTO> toRequestDTOs(List<Traduzione> traduzioni) {
-        return traduzioni.stream().map(t -> new TraduzioneRequestDTO(
+    public List<TraduzioneDTO> toRequestDTOs(List<Traduzione> traduzioni) {
+        return traduzioni.stream().map(t -> new TraduzioneDTO(
                 t.getId(),
                 t.getFraseTradotta(),
                 t.getNotaMentale(),

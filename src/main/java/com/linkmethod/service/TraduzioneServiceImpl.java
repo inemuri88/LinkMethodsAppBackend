@@ -2,7 +2,7 @@ package com.linkmethod.service;
 
 import com.linkmethod.dto.request.FraseCreateDTO;
 import com.linkmethod.dto.request.TraduzioneCreateDTO;
-import com.linkmethod.dto.request.TraduzioneUpdateDTO;
+import com.linkmethod.dto.request.TraduzioneDTO;
 import com.linkmethod.dto.response.TraduzioneResponseDTO;
 import com.linkmethod.entity.Frase;
 import com.linkmethod.entity.Traduzione;
@@ -49,7 +49,7 @@ public class TraduzioneServiceImpl implements TraduzioneService{
         traduzioneRepository.delete(traduzioneRepository.getTraduzioneById(id));
     }
 
-    public TraduzioneResponseDTO update(TraduzioneUpdateDTO dto){
+    public TraduzioneResponseDTO update(TraduzioneDTO dto){
         Traduzione traduzione = traduzioneRepository.getTraduzioneById(dto.id());
 
         traduzione.setLingua(dto.lingua());

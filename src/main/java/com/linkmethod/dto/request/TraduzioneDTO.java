@@ -1,6 +1,6 @@
 package com.linkmethod.dto.request;
 
-public record TraduzioneRequestDTO(
+public record TraduzioneDTO(
         Long id,
         String fraseTradotta,
         String notaMentale,

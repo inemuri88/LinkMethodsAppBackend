@@ -2,7 +2,7 @@ package com.linkmethod.service;
 
 import com.linkmethod.dto.request.FraseCreateDTO;
 import com.linkmethod.dto.request.TraduzioneCreateDTO;
-import com.linkmethod.dto.request.TraduzioneUpdateDTO;
+import com.linkmethod.dto.request.TraduzioneDTO;
 import com.linkmethod.dto.response.TraduzioneResponseDTO;
 import com.linkmethod.entity.Frase;
 import com.linkmethod.entity.Traduzione;
@@ -15,7 +15,7 @@ public interface TraduzioneService {
 
     void delete(Long id);
 
-    TraduzioneResponseDTO update(TraduzioneUpdateDTO dto);
+    TraduzioneResponseDTO update(TraduzioneDTO dto);
 
     List<TraduzioneResponseDTO> getAllTraduzioniForFrase(Long idFrase);
 

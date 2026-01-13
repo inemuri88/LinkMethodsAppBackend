@@ -2,7 +2,7 @@ package com.linkmethod.controller;
 
 
 import com.linkmethod.dto.request.TraduzioneCreateDTO;
-import com.linkmethod.dto.request.TraduzioneUpdateDTO;
+import com.linkmethod.dto.request.TraduzioneDTO;
 import com.linkmethod.dto.response.TraduzioneResponseDTO;
 import com.linkmethod.service.TraduzioneService;
 import jakarta.validation.Valid;
@@ -35,7 +35,7 @@ public class TraduzioneController {
 
     @PutMapping("/update")
     public ResponseEntity<TraduzioneResponseDTO> update(
-            @Valid @RequestBody TraduzioneUpdateDTO dto) {
+            @Valid @RequestBody TraduzioneDTO dto) {
         TraduzioneResponseDTO updated = traduzioneService.update(dto);
         return ResponseEntity.ok(updated);
     }
@@ -46,7 +46,7 @@ public class TraduzioneController {
     }
 
     @GetMapping("/traduzioni/{id}")
-    public List<TraduzioneResponseDTO> getAll(@PathVariable Long id){
-        return traduzioneService.getAllTraduzioniForFrase(id);
+    public ResponseEntity<List<TraduzioneResponseDTO>> getAll(@PathVariable Long id){
+        return ResponseEntity.ok(traduzioneService.getAllTraduzioniForFrase(id));
     }
 }
